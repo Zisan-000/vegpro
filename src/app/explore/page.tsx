@@ -334,7 +334,7 @@ export default function ExplorePage() {
                   </div>
 
                   <Link
-                    href={`/items/${item._id}`}
+                    href={`/explore/${item._id}`}
                     className="mt-auto w-full text-center bg-green-50 text-green-700 font-semibold py-2.5 rounded-lg hover:bg-green-600 hover:text-white transition-colors border border-green-200 hover:border-green-600"
                   >
                     View Details
