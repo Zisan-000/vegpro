@@ -40,7 +40,7 @@ export default function ItemDetailsPage() {
     const fetchItemDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/vegetables/${itemId}`,
+          `https://vegpro-server.vercel.app/api/vegetables/${itemId}`,
         );
         if (!response.ok) {
           if (response.status === 404) {
@@ -171,11 +171,14 @@ export default function ItemDetailsPage() {
                   };
 
                   try {
-                    const res = await fetch("http://localhost:5000/api/cart", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(cartPayload),
-                    });
+                    const res = await fetch(
+                      "https://vegpro-server.vercel.app/api/cart",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(cartPayload),
+                      },
+                    );
                     if (res.ok) toast.success("Added to cart!");
                   } catch (e) {
                     toast.error("Failed to add item to cart.");

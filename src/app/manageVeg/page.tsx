@@ -38,7 +38,7 @@ export default function ManageItemsPage() {
     const fetchMyItems = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/vegetables/user/${session.user.id}`,
+          `https://vegpro-server.vercel.app/api/vegetables/user/${session.user.id}`,
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
@@ -67,7 +67,7 @@ export default function ManageItemsPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/vegetables/${id}`,
+        `https://vegpro-server.vercel.app/api/vegetables/${id}`,
         {
           method: "DELETE",
         },

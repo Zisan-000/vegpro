@@ -55,7 +55,7 @@ export default function UpdateVegetablePage() {
     const fetchItem = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/vegetables/${itemId}`,
+          `https://vegpro-server.vercel.app/api/vegetables/${itemId}`,
         );
         if (!response.ok) throw new Error("Failed to fetch item");
 
@@ -105,7 +105,7 @@ export default function UpdateVegetablePage() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/vegetables/${itemId}`,
+        `https://vegpro-server.vercel.app/api/vegetables/${itemId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

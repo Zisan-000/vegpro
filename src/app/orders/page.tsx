@@ -41,7 +41,7 @@ export default function BoughtItemsPage() {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/orders/${session.user.id}`,
+          `https://vegpro-server.vercel.app/api/orders/${session.user.id}`,
         );
         if (response.ok) {
           const data = await response.json();

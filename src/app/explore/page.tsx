@@ -47,7 +47,7 @@ export default function ExplorePage() {
   useEffect(() => {
     const fetchVegetables = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/vegetables");
+        const response = await fetch("https://vegpro-server.vercel.app/api/vegetables");
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
         setVegetables(data);

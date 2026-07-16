@@ -34,7 +34,7 @@ export default function CartPage() {
     const fetchCart = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/cart/${session.user.id}`,
+          `https://vegpro-server.vercel.app/api/cart/${session.user.id}`,
         );
         if (response.ok) {
           const data = await response.json();
@@ -52,9 +52,12 @@ export default function CartPage() {
 
   const handleRemove = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://vegpro-server.vercel.app/api/cart/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
       if (response.ok) {
         setCartItems((prev) => prev.filter((item) => item._id !== id));
         toast.success("Removed from cart");
@@ -68,11 +71,14 @@ export default function CartPage() {
   const handleCheckout = async () => {
     setIsCheckingOut(true);
     try {
-      const response = await fetch("http://localhost:5000/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: session?.user?.id }),
-      });
+      const response = await fetch(
+        "https://vegpro-server.vercel.app/api/checkout",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId: session?.user?.id }),
+        },
+      );
 
       if (response.ok) {
         toast.success("Bought done! Order confirmed.");

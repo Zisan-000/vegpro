@@ -35,13 +35,16 @@ export default function AddVegetablePage() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/vegetables", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://vegpro-server.vercel.app/api/vegetables",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(vegetableData),
         },
-        body: JSON.stringify(vegetableData),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to save");
